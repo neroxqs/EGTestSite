@@ -13,6 +13,11 @@ async function checkNetwork() {
     });
 }
 
+async function updateAccounts(address) {
+    const wallet = document.getElementById('walletAddress');
+    wallet.innerHTML = "Your address  : " + address;
+  }
+
 async function getContractsJSON() {
     const response = await fetch("./contract_info/contracts.json");
     const json = await response.json();
@@ -45,6 +50,28 @@ async function getAccounts(){
     return await ethereum.request({ method: 'eth_accounts' });
 }
 
+// Getting contracts
+
+async function loadStakingContract() {
+    var json = await getContractsJSON();
+    return await new window.web3.eth.Contract(json.stakeContractABI, json.stakeContractAddress);
+  }
+  
+  async function loadMintingContract() {
+    var json = await getContractsJSON();
+    return await new web3.eth.Contract(json.mintContractABI, json.mintContractAddress);
+  }
+  
+  async function loadManaContract() {
+    var json = await getContractsJSON();
+    return await new web3.eth.Contract(json.manaContractABI, json.manaContractAddress);
+  }
+  
+  async function loadWethContract() {
+    var json = await getContractsJSON();
+    return await new web3.eth.Contract(json.wethContractABI, json.wethContractAddress);
+  }
+
 // Loading NFT's
 
 async function loadNFT() {
@@ -68,7 +95,6 @@ async function load(){
     window.manaContract = await loadManaContract();
     window.wethContract = await loadWethContract();
   
-    
   }
   
   // Onclick functions
