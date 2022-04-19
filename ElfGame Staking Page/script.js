@@ -1,3 +1,35 @@
+var maticMainnetId = 80001;
+
+async function checkNetwork() {
+    web3.eth.net.getId().then((networkId) => {
+      if (networkId != maticMainnetId) {
+        alert("Connect to Matic Mainnet first.");
+        window.location.href = "../index.html";
+      }
+    })
+    .catch((err) => {
+      alert("Unable to retrieve netwok information.");
+      window.location.href = "../index.html";
+    });
+}
+
+async function getContractsJSON() {
+    const response = await fetch("./contract_info/contracts.json");
+    const json = await response.json();
+    return json;
+}
+
+async function connect() {
+    const accounts = await getAccounts();
+  
+    if(accounts.length>0){
+      updateAccounts(accounts[0]);
+    }
+    else{
+      window.location.href = "../index.html";
+    }
+  }
+
 async function loadWeb3() {
     if (window.ethereum) {
         window.web3 = new Web3(window.ethereum);
