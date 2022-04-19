@@ -75,9 +75,10 @@ async function loadStakingContract() {
 // Loading NFT's
 
 async function loadNFT() {
-    const options = {method: 'GET'};
     const json = await getContractsJSON();
     const ownerAddress = await getAccounts();
+    const options = {method: 'GET', headers: {Accept: 'application/json'}};
+
 
     fetch(`https://api.opensea.io/api/v1/assets?owner=${ownerAddress}`, options).then(response => response.json())
     .then(response => console.log(response))
