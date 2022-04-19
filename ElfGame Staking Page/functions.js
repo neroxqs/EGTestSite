@@ -1,5 +1,5 @@
 // Global variables
-var maticMainnetId = 137;
+var maticMainnetId = 80001;
 var stakingTimestamp = new Map();
 
 var stakedElfsInfo = new Map();
