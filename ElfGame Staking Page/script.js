@@ -1,3 +1,19 @@
+async function getAccounts(){
+    return await ethereum.request({ method: 'eth_accounts' });
+}
+
+// Loading NFT's
+
+async function loadNFT() {
+    const options = {method: 'GET'};
+    const json = await getContractsJSON();
+    const ownerAddress = await getAccounts();
+
+    fetch(`https://testnets-api.opensea.io/api/v1/assets?owner=${ownerAddress}&asset_contract_address=${json.mintContractAddress}`, options).then(response => response.json())
+    .then(response => console.log(response))
+    .catch(err => console.error(err));
+}
+
 // Loading contracts
 
 async function load(){
