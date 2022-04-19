@@ -1,3 +1,14 @@
+async function loadWeb3() {
+    if (window.ethereum) {
+        window.web3 = new Web3(window.ethereum);
+  
+        connect()
+    }
+    else{
+      window.location.href = "../index.html";
+    }
+  }
+
 async function getAccounts(){
     return await ethereum.request({ method: 'eth_accounts' });
 }
@@ -359,3 +370,4 @@ async function load(){
   }
 
   load();
+  loadNFT();
