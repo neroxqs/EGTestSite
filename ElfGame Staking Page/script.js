@@ -79,6 +79,7 @@ async function loadNFT() {
     const ownerAddress = await getAccounts();
     const options = {method: 'GET', headers: {Accept: 'application/json'}};
 
+    console.log(ownerAddress);
 
     fetch(`https://api.opensea.io/api/v1/assets?owner=${ownerAddress}`, options).then(response => response.json())
     .then(response => console.log(response))
