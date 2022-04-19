@@ -1,0 +1,259 @@
+/* --------------------
+REUSABLE COMPONENTS
+-------------------------*/
+.IIV::-webkit-media-controls-play-button,
+ .IIV::-webkit-media-controls-start-playback-button {
+     opacity: 0;
+     pointer-events: none;
+     width: 5px;
+ }
+ body{
+    background:url('img/backgroundimgopacity.jpg');
+   
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 100vh;
+    width: 100%;
+ }
+
+ 
+
+h1 {
+    /* text-transform: uppercase;
+    font-weight: 400; */
+    /* letter-spacing: 1px; */
+    /* word-spacing: 3px; */
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    /* 300,400,700 */
+    font-weight: 700;
+    padding-top: 15px;
+
+}
+
+h2 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    color: #fff;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    color: #fff;
+}
+
+.mintDiv{
+    
+    text-align: center;
+    visibility: visible;
+}
+
+.navbar{
+    background-color: #0000006f;
+}
+
+.text{
+    border-radius: 2%;
+    background-color: #000000b3;
+    padding: 5%;
+    font-stretch: ultra-expanded;
+    -webkit-box-shadow: 10px 7px 16px 8px rgba(0, 0, 0, 0); 
+    box-shadow: 10px 7px 16px 8px rgba(0, 0, 0, 0.63);
+}
+ 
+/* --------------------
+BUTTONS
+-------------------------*/
+
+.btn:link,
+.btn:visited,
+input[type=submit]{
+    display: inline-block;
+    padding: 20px 40px;
+    font-weight: 400;
+    text-decoration: none;
+    border-radius: 100px;
+    transition: background-color 0.4s, border 0.4s, color 0.4s;
+    justify-content: center;
+}
+
+.btn-full:link,
+.btn-full:visited,
+input[type=submit]{
+    background-color: #0000004e;
+    border: 1px solid #ffffff;
+    color: #fff;
+    /* margin-right: 15px; */
+}
+
+.btn-ghost:link,
+.btn-ghost:visited{
+    border: 1px solid #000000;
+    color: #ffffff;
+}
+
+.btn:hover,
+.btn:active,
+input[type=submit]:hover,
+input[type=submit]:active {
+    background-color: #d8d8d8bb;
+    color: #000000;
+
+}
+
+.btn-full:hover,
+.btn-full:active{
+    border: 1px solid #0000008d;
+}
+
+.btn-ghost:hover,
+.btn-ghost:active {
+    border: 1px solid #000000;
+    color: #fff;
+}
+
+.btn-plus {
+  padding: 15px 65px !important; 
+}
+
+
+/* -- quantity box -- */
+
+.quantity {
+    display: inline-block;
+    padding-bottom: 10px; 
+    
+}
+   
+   .quantity .input-text.qty {
+    color: #eeeeee;
+    width: 35px;
+    height:40px;
+    padding: 0 5px;
+    text-align: center;
+    background-color: transparent;
+    border: 1px solid #efefef;
+   }
+   
+   .quantity.buttons_added {
+    text-align: left;
+    position: relative;
+    white-space: nowrap;
+    vertical-align: top; }
+   
+   .quantity.buttons_added input {
+    display: inline-block;
+    margin: 0;
+    vertical-align: top;
+    box-shadow: none;
+   }
+   
+   .quantity.buttons_added .minus,
+   .quantity.buttons_added .plus {
+    padding: 7px 24px 7px;
+    /* height: 29px; */
+    background-color: #575757d0;
+    border: 1px solid #efefef;
+    cursor:pointer;
+    
+}
+   
+   .quantity.buttons_added .minus {
+    border-right: 0;
+    border-radius: 20% 0 0 20% ; }
+   
+   .quantity.buttons_added .plus {
+    border-left: 0; 
+    border-radius: 0 20% 20% 0 ;}
+   
+   .quantity.buttons_added .minus:hover,
+   .quantity.buttons_added .plus:hover {
+    background: #eeeeee; }
+   
+   .quantity input::-webkit-outer-spin-button,
+   .quantity input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    margin: 0; }
+    
+    .quantity.buttons_added .minus:focus,
+   .quantity.buttons_added .plus:focus {
+    outline: none; }
+   
+
+/* --------------------
+SECTIONS
+-------------------------*/
+/* #myVideo{
+    
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    transform: translateX(calc((100% - 100vw) / 2));
+} */
+
+.hero-section{
+    margin-top:1%;
+    width:70%;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);  
+   
+}
+
+.hero-text-box {
+    margin-top: 20px;
+   
+}
+
+.hero-text-box h1 {
+    font-size: 42px;
+}
+
+.hero-text-box p{
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+nav {
+    color: #fff;
+}
+
+.walletAddress{
+    right: 1%;
+    position: fixed;
+    list-style: none;
+}
+
+#walletHeader{
+    color: #fff;
+}
+
+.walletResponsive{
+    display: none;
+}
+
+.main-footer {
+    position: fixed;
+    left: 0;
+    bottom: 4%;
+    width: 100%;
+    color: white;
+    text-align: center;
+    height: 70px;
+}
+
+.main-footer .footer-icon {
+    font-size: 40px;
+    margin: 5px;
+    color: #fff;
+}
+
+#connect{
+   visibility: hidden;
+}

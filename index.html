@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="elf.jpeg" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="vendors/ionicons.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="queries.css">
+  
+    <title>Elf Game</title>
+</head>
+<body>
+    
+  <!-- <video autoplay loop muted playsinline class = "myVideo" id="myVideo" src="video.mp4"></video> -->
+     
+    
+    <header>
+      
+        <nav class=" navbar fixed-top navbar-expand-lg navbar-transparent navbar-dark">
+            <a class="navbar-brand">Elf Game</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link" href="">Roadmap</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="https://medium.com/@elfgame/total-elf-orc-supply-22189147f042">Whitepaper</a>
+                </li>
+              </ul>
+              <li class="nav-item walletAddress">
+                <a class="nav-link" id="walletHeader"></a>
+              </li>
+            </div>
+           
+          </nav>
+
+            <div class="hero-section">
+            
+                                                    
+                    <div class="hero-text-box">
+                          <div class="container"> 
+                <div class="row justify-content-center">
+                  <a class="btn btn-full btn-plus" href="javascript:goToStakingPage();">Staking</a>                             
+                </div>                                                  
+              </div>
+                     <div class="text">
+                          <h1>GET READY <br> FOR THE TWO WORLDS TO COLLAPSE</h1>
+                          <p>Join the world where Elves have to take up arms in a grand war against their greatest enemy - the Orcs. Are you ready for the epic clash?</p> 
+                          <a id="connect" class="btn btn-full btn-plus" href="javascript:checkIfWalletIsConnected();">Connect Wallet</a>                        
+<!--                         <div class="mintDiv">
+                            <div id="amountMintDiv">
+                             
+                                <div class="quantity buttons_added">
+                                  <input disabled=true type="button" value="-" class="minus" onClick="decrease()"><input id="mintAmount" type="number" step="1" min="1" max="10" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus" onClick="increase()">
+                                </div>
+                            </div>
+                            <a id="mint" class="btn btn-full btn-plus" href="javascript:mintWithEthereum();">Mint</a>
+                            <p id="mintedAmount" ></p>
+                               <div>
+                              <a id ="approve" class="btn btn-full btn-plus" href="javascript:approve();">Approve</a>
+                            </div>
+                          </div>  -->
+                      </div>
+                    
+                </div>
+            </div>
+
+            
+    </header>
+
+    
+
+    <div class="main-footer">
+      <div class="container">
+        <div class="row justify-content-center">
+            <a href="https://twitter.com/ElfGame2"><ion-icon name="logo-twitter" class="footer-icon " style="color: aliceblue;"></ion-icon></a>
+            <a href="https://discord.gg/elfgame"><ion-icon name="logo-discord" class="footer-icon" style="color: aliceblue;"></ion-icon></a>
+        </div>
+      </div>
+
+<!--       <div class="container walletResponsive">
+        <div class="row justify-content-center">
+          <p id="walletFooter">fsdfsdfdd</p>
+        </div>
+      </div> -->
+    </div>
+
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+<script src="js/script.js"></script>
+</body>
+</html>

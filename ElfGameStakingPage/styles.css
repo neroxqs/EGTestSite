@@ -1,0 +1,517 @@
+body{
+    background:url('backgroundnew.jpg');
+    min-height:100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 100%;
+    width: 100%;
+}
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #00000050;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(0, 0, 0);
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(20, 13, 13, 0.699);
+  }
+  
+ .main{
+     padding-bottom: 5%;
+ }
+
+.backicon {
+    margin: 10px 10px;
+    height: 50px;
+    width: 50px;
+    color: #fff;
+    position: absolute;
+}
+
+#infoSection{
+    border: rgba(0, 0, 0, 0.74) 1px solid;
+    margin-top: 60px;
+    margin-bottom: 20px;
+    height: 100%;
+    color: #fff;
+    background-color: rgba(34, 34, 34, 0.3);
+    font-family: 'Roboto', sans-serif;
+    /* 300,400,700 */
+    font-weight: 700;
+}
+
+.mintAndWand{
+    text-align: right;
+    margin-top: 80px;
+    
+}
+
+
+#mintDiv p{
+    font-family: 'Roboto', sans-serif;
+    color: rgb(255, 255, 255);
+    margin-top: 2%;
+    padding-left: 4%;
+}
+
+#mintAmount{
+    width: 10%;
+    color: rgb(0, 0, 0);
+}
+
+#mintedAmount{
+    margin-right:80px;
+}
+
+
+
+.stakedHeader, .unstakedHeader{
+    width: 100%;
+    color: #ffffff;
+    text-align: center;
+}
+
+
+
+
+
+#bigSection{
+   
+    width: 49%;
+    margin: 5px;
+    margin-top: 15px;
+    text-align: center;
+    background-color: rgba(43, 43, 43, 0.507);
+    -webkit-box-shadow: 10px 7px 16px 8px rgba(0,0,0,0.95); 
+    box-shadow: 10px 7px 16px 8px rgba(0,0,0,0.95);
+    
+}
+
+.UnstakedElfsMainSection, .UnstakedOrcsMainSection{
+    
+    justify-content: center;
+    width: 49%;
+    margin: 5px;
+    background-color: rgba(0, 0, 0, 0);
+    -webkit-box-shadow: 10px 7px 16px 8px rgba(0,0,0,0.95); 
+    box-shadow: 10px 7px 16px 8px rgba(0,0,0,0.95);
+    height: 40%;
+}
+
+
+
+
+.UnstakedElfsTemporary, .UnstakedOrcsTemporary{
+    justify-content: center;
+    display: grid;
+    flex-wrap: nowrap;
+    background-color: rgba(0, 0, 0, 0);  
+    width: auto;
+    height: 156px;
+    overflow-y: auto !important;
+    white-space: nowrap;
+    grid-template-columns: repeat(auto-fit, minmax(110px, max-content)); 
+}
+
+.StakedElfsTemporary, .StakedOrcsTemporary{
+    justify-content: center;
+    display: grid;
+    flex-wrap: nowrap;
+    background-color: rgba(0, 0, 0, 0);  
+    width: auto;
+    height: 171px;
+    overflow-y: auto !important;
+    white-space: nowrap;
+    grid-template-columns: repeat(auto-fit, minmax(110px, max-content)); 
+}
+
+
+
+#idParagraph{
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    margin: 0;
+}
+
+.timestampParagraph{
+    text-align: center;
+    margin: 0;
+}
+
+.rewardTokensAmountClass{
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.nftStaked{
+    background-color: rgba(255, 255, 255, 0.158);
+    color: white;
+    float: left;
+    height: 160px;
+    width: 110px;
+    margin: 5px;
+}
+
+.nftUnstaked{
+    background-color: rgba(255, 255, 255, 0.158);
+    color: white;
+    float: left;
+    height: 146px;
+    width: 110px;
+    margin: 5px;
+}
+
+.nftStaked p{
+     font-family: 'Roboto', sans-serif;
+    font-size: 11px;
+}
+
+.nftUnstaked p{
+     font-family: 'Roboto', sans-serif;
+    font-size: 11px;
+}
+
+
+
+#idParagraph{
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.nftStaked:hover{
+    background-color: rgba(0, 0, 0, 0.555);
+    cursor: pointer;
+}
+
+.nftUnstaked:hover{
+    background-color: rgba(0, 0, 0, 0.555);
+    cursor: pointer;
+}
+
+.selectedStaked{
+    background-color: rgba(0, 0, 0, 0.453);
+    color: white;
+    float: left;
+    height: 160px;
+    width: 110px;
+    margin: 5px;
+}
+
+.selectedStaked:hover{
+    cursor: pointer;
+}
+
+.selectedStaked p{
+     font-family: 'Roboto', sans-serif;
+    font-size: 11px;
+}
+
+.selectedUnstaked{
+    background-color: rgba(0, 0, 0, 0.453);
+    color: white;
+    float: left;
+    height: 146px;
+    width: 110px;
+    margin: 5px;
+}
+
+.selectedUnstaked:hover{
+    cursor: pointer;
+}
+
+
+
+.selectedUnstaked p{
+     font-family: 'Roboto', sans-serif;
+    font-size: 11px;
+}
+
+
+
+#NFTImage{
+    height: 110px;
+    width: auto;
+    
+}
+
+.bigSectionButtons{
+    margin: 15px;
+}
+
+.bigSectionButtons:hover{
+    background-color: rgba(255, 255, 255, 0.205);
+}
+
+#amountMintDiv{
+    padding-right: 6.8%;
+    color: white;
+}
+
+
+/* --------------------
+BUTTONS
+-------------------------*/
+
+.btn:link,
+.btn:visited,
+input[type=submit]{
+    display: inline-block;
+    padding: 10px 40px;
+    font-weight: 400;
+    text-decoration: none;
+    border-radius: 100px;
+    transition: background-color 0.4s, border 0.4s, color 0.4s;
+    justify-content: center;
+}
+
+.btn-full:link,
+.btn-full:visited,
+input[type=submit]{
+    background-color: #0000003e;
+    border: 1px solid #ffffff;
+    color: #fff;
+    
+}
+
+.btn-ghost:link,
+.btn-ghost:visited{
+    border: 1px solid #000000;
+    color: #ffffff;
+}
+
+.btn:hover,
+.btn:active,
+input[type=submit]:hover,
+input[type=submit]:active {
+    background-color: #000000;
+
+}
+
+.btn-full:hover,
+.btn-full:active{
+    border: 1px solid #000000;
+}
+
+.btn-ghost:hover,
+.btn-ghost:active {
+    border: 1px solid #000000;
+    color: #fff;
+}
+
+.btn-plus {
+  padding: 15px 65px !important; 
+}
+
+.btn-minus {
+    margin: 10px 0;
+    padding: 10px 50px !important; 
+}
+
+.btn-small {
+    margin: 10px 0;
+    padding: 5px 40px !important; 
+}
+
+.buttonBack{
+    height: 20px;
+    width: 50px;
+    margin: 10px;
+}
+
+.quantity {
+    display: inline-block;
+    padding-bottom: 10px; 
+    justify-content: flex-end;
+    margin-right: 7px;
+    
+}
+.quantity .input-text.qty {
+    color: #eeeeee;
+    width: 35px;
+    height:40px;
+    padding: 0 5px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.150);
+    border: 1px solid #efefef;
+   }
+   
+   .quantity.buttons_added {
+    text-align: left;
+    position: relative;
+    white-space: nowrap;
+    vertical-align: top; }
+   
+   .quantity.buttons_added input {
+    display: inline-block;
+    margin: 0;
+    vertical-align: top;
+    box-shadow: none;
+   }
+   
+   .quantity.buttons_added .minus,
+   .quantity.buttons_added .plus {
+    padding: 7px 24px 7px;
+    /* height: 29px; */
+    background-color: rgba(0, 0, 0, 0.350);
+    border: 1px solid #efefef;
+    cursor:pointer;
+        color: rgb(255, 255, 255);
+    
+}
+   
+   .quantity.buttons_added .minus {
+    border-right: 0;
+    border-radius: 20% 0 0 20% ; }
+   
+   .quantity.buttons_added .plus {
+    border-left: 0; 
+    border-radius: 0 20% 20% 0 ;}
+   
+   .quantity.buttons_added .minus:hover,
+   .quantity.buttons_added .plus:hover {
+    background: rgba(0, 0, 0, 0.657);
+    color: rgb(255, 255, 255); }
+   
+   .quantity input::-webkit-outer-spin-button,
+   .quantity input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    margin: 0; }
+    
+    .quantity.buttons_added .minus:focus,
+   .quantity.buttons_added .plus:focus {
+    outline: none; }
+   
+
+
+
+@media only screen and (max-width:1200px){
+        .mintAndWand{
+/*         margin-left: 35% ; */
+        margin-top: 10%;
+        justify-content: center;
+    }
+    #mintedAmount{
+        margin-right: 15%;
+    }
+    #amountMintDiv{
+        padding-right: 8.5%;
+    }
+    
+}
+
+@media only screen and (max-width:991px){
+  .mintAndWand{
+    text-align: center;
+    margin-top: 80px;
+}
+#amountMintDiv{
+    padding-right: 0;
+}
+  #mintedAmount{
+    margin-right: 10%;
+ }   
+}
+
+@media only screen and (max-width:767px){
+    #infoSection{
+        width: 100%;
+    }
+     #mintedAmount{
+    margin-right: 7%;
+ }   
+}
+
+@media only screen and (max-width:700px){
+  
+}
+
+@media only screen and (max-width:575px){
+ 
+  
+}
+
+@media only screen and (max-width:470px){
+  
+
+    .btn-small {
+        margin: 10px 0;
+        padding: 5px 30px !important; 
+    }
+    .btn-minus {
+        margin: 10px 0;
+        padding: 5px 30px !important; 
+    }
+    #bigSection a {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 575.98px) and (max-width: 767.98px){
+ 
+    body{
+        height: 100%;
+        width: 100vh;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 100%;
+    }
+
+    .stakingcol{
+        margin-left: 0;
+        overflow: auto;
+        white-space: nowrap;
+    }
+
+    .stakingcol div{
+        display: inline-block;
+    }
+
+    #infoSection{
+        height: auto;
+    }
+}
+
+@media only screen and (max-width:391px) {
+   
+    body{
+        height: 100%;
+        width: 100vh;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 100%;
+    }
+
+    .stakingcol{
+        margin-left: 0;
+        overflow: auto;
+        white-space: nowrap;
+    }
+
+    .stakingcol div{
+        display: inline-block;
+    }
+
+    #infoSection{
+        height: auto;
+    }  
+   
+   
+}

@@ -1,0 +1,262 @@
+@media only screen and (max-width:1246px){
+   .hero-text-box h1 {
+        font-size: 40px;
+    }
+
+    .hero-text-box p{
+        font-size: 18px;
+    }
+    .hero-text-box {
+        margin-top: 13px;
+       
+    }
+   
+     .main-footer .footer-icon {
+        font-size: 30px;
+        margin: 5px;
+        color: #fff;
+    }
+    
+}
+
+@media only screen and (max-width:1107px){
+    .hero-text-box h1 {
+        font-size: 45px;
+    }
+}
+
+@media only screen and (max-width:1002px){
+    .hero-text-box h1 {
+        font-size: 40px;
+    }
+    .btn-plus {
+        padding: 10px 60px !important; 
+    }
+}
+
+@media only screen and (max-width:991px){
+   
+    .walletAddress {
+        display: none;
+    }
+  
+    .hero-text-box h1 {
+        font-size: 20px;
+    }
+     .main-footer .footer-icon {
+        font-size: 30px;
+        margin: 5px;
+        color: #fff;
+    }
+
+/*     .walletResponsive {
+        display: none;
+        color: #fff;
+        text-align: center;
+
+    } */
+}
+
+@media only screen and (max-width:740px){
+    .quantity.buttons_added .minus,
+   .quantity.buttons_added .plus {
+    padding: 0 10px 0 10px;
+    }
+
+    
+   .quantity .input-text.qty { 
+    height:26px;
+   }
+
+    .hero-text-box h1 {
+        font-size: 15px;
+    }
+    .btn-plus {
+        padding: 8px 55px !important; 
+    }
+  
+   
+}
+
+@media only screen and (max-width:700px) {
+    .hero-text-box h1 {
+        font-size: 15px;
+    }
+    .btn-plus {
+        padding: 10px 40px !important; 
+    }
+   .main-footer .footer-icon {
+        font-size: 30px;
+        margin: 5px;
+        color: #fff;
+    }
+  
+}
+
+@media only screen and (max-width:580px){
+
+    .btn-full:link,
+    .btn-full:visited,
+    input[type=submit]{
+    margin-right: 5px;
+    }
+
+    .hero-text-box h1 {
+        font-size: 23px;
+    }
+
+    .hero-text-box p{
+        font-size: 15px;
+    }
+    .btn-plus {
+        padding: 10px 35px !important; 
+    }
+  
+}
+
+@media only screen and (max-width:530px){
+  
+    .btn-plus {
+        padding: 10px 25px !important; 
+    }
+    .hero-text-box h1 {
+        font-size: 15px;
+    }
+
+    .hero-text-box p{
+        font-size: 10px;
+    }
+   
+   
+   .main-footer .footer-icon {
+        font-size: 20px;
+        margin: 5px;
+        color: #fff;
+      bottom: 3px;
+    }
+   .hero-text-box{
+   height: 40%;
+   }
+   
+   
+ 
+}
+
+@media only screen and (max-width:480px) {
+   .hero-section{
+        margin-top: 8%;
+        width: 65%;
+       font-family: 'Roboto', sans-serif;
+    }
+    .btn-plus {
+        padding: 8px 25px !important; 
+    }
+    .btn-full:link,
+    .btn-full:visited,
+    input[type=submit]{
+    margin-right: 1px;
+    }
+    .hero-text-box h1 {
+        font-size: 15px;
+    }
+    .hero-text-box p{
+        font-size: 10px;
+    }
+
+ 
+}
+
+@media only screen and (max-width:432px){
+    .navbar{
+        background-color: rgba(0, 0, 0, 0.596);
+    }
+    .hero-section{
+        margin-top: 5%;
+        width: 65%;
+       font-family: 'Roboto', sans-serif;
+    }
+    .btn-plus {
+        padding: 7px 20px !important; 
+    }
+ 
+   .footer-icon{
+   font-size: 8px;
+   }
+   
+   .main-footer{
+/*       position: relative; */
+      bottom: 8px;
+   }
+ 
+}
+
+
+@media only screen and (max-width:392px){
+    .hero-section{
+       top: 50%;
+        margin-top: 0;
+       height: 50%;
+        width: 85%;
+       font-family: 'Roboto', sans-serif;
+    }
+    .navbar{
+        background-color: rgba(0, 0, 0, 0.596);
+    }
+    .btn-plus {
+        padding: 7px 16px !important; 
+    }
+   .hero-text-box{
+      margin: 0;
+   }
+    .hero-text-box h1 {
+        font-size: 15px;
+    }
+    .hero-text-box p{
+        font-size: 10px;
+    }
+   
+    
+    
+    .btn:link,
+    .btn:visited,
+    input[type=submit]{
+    font-weight: 100;
+    }
+}
+
+@media only screen and (max-width:360px) {
+   .hero-section{
+      margin-top:27%;
+   }
+    .btn-plus {
+        padding: 7px 14px !important; 
+    }
+    
+    .btn:link,
+    .btn:visited,
+    input[type=submit]{
+        font-weight: 100;
+    }
+
+   
+    
+}
+
+@media only screen and (max-width:329px){
+    .hero-section{
+        margin-top: 18%;
+    }
+    .btn-plus {
+        padding: 7px 12px !important; 
+    }
+       .hero-text-box h1 {
+        font-size: 15px;
+    }
+    .hero-text-box p{
+        font-size: 10px;
+    }
+   .main-footer {
+        font-size: 10px;
+    }
+    
+}
