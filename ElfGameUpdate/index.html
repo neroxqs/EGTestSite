@@ -8,42 +8,80 @@
     <link rel="preconnect" href="https://fonts.googleapis.com"> 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/bootstrap.css">   
+    <link rel="stylesheet" href="../ElfGame Staking Page/css/bootstrap.css">   
     <link rel="stylesheet" href="styles.css">
 
     <title>Elf Game Update</title>
 </head>
 <body>
-    <h2 class="stakedHeader">STAKED ELVES</h2>
-
-    <div class="col StakedElfsMainSection" id="bigSection">
-      <a href="javascript:selectAllElfsStake();" class="btn btn-full btn-minus" id="selectStakedElfs" >Select all</a>
-     
-      <div class="col stakingcol d-grid flex-wrap justify-content-center StakedElfsTemporary" id="stakedElfs">
-        
+  <a href="../index.html"><ion-icon name="arrow-back-circle-outline" class="backicon"></ion-icon></a>
+    <div class="container">
+   
+        <div class="main row row-cols-1 row-cols-sm-2 row-cols-md-2 justify-content-center">
+          <div class="col" id="infoSection">
+         <img src="../elf.jpeg" alt="">
+          </div>
+          
+          <div class="col ">
          
-          
-      </div>
-      <a href="javascript:claimOrcRewards();" class="btn btn-full btn-small ButtonClaimOrc"  style="margin-right:5px; margin-left: 5px;" >Claim $MANA</a>  
-      <a href="javascript:unstakeOrcs();" class="btn btn-full btn-small ButtonUnstakeOrc"  style="margin-right:5px; margin-left: 5px;" >Unstake</a>
-      <a href="javascript:ambush();" class="btn btn-full btn-small ButtonAmbush"   style="margin-right:5px; margin-left: 5px;">Ambush</a>
-    </div>
+          </div>  
+ 
+          <h2 class="stakedHeader">STAKED</h2>
 
-    <h2 class="stakedHeader">UNSTAKED ELVES</h2>
+        <div class="col StakedOrcsMainSection" id="bigSection">
+          <a href="javascript:selectAllOrcsUnstake();" class="btn btn-full btn-minus" id="selectStakedOrcs" >Select all</a>
+         
+          <div class="col stakingcol d-grid flex-wrap justify-content-center StakedOrcsTemporary" id="stakedOrcs">
+            
+             
+              
+          </div>
+          <a href="javascript:claimOrcRewards();" class="btn btn-full btn-small ButtonClaimOrc"  style="margin-right:5px; margin-left: 5px;" >Claim $MANA</a>  
+          <a href="javascript:unstakeOrcs();" class="btn btn-full btn-small ButtonUnstakeOrc"  style="margin-right:5px; margin-left: 5px;" >Unstake</a>
+          <a href="javascript:ambush();" class="btn btn-full btn-small ButtonAmbush"   style="margin-right:5px; margin-left: 5px;">Ambush</a>
+        </div>
 
-    <div class="col UnstakedElfsMainSection" id="bigSection">
-      <a href="javascript:selectAllElfsStake();" class="btn btn-full btn-minus" id="selectUnstakedElfs">Select all</a>
-      <!-- <button class="bigSectionButtons buttonSelect">Select All</button> -->
-      <div class="col stakingcol d-grid justify-content-center flex-wrap StakedElfsTemporary" id="unstakedElfs">
+        <div class="col stakedMysticAndWand">
+          <div class="col stakedMysticTree">
+            <a href="javascript:selectAllOrcsStake();" class="btn btn-full btn-minus" id="selectUnstakedOrcs">Select all</a>
+            <p>fdsjkfs</p>
+          </div>
+          <div class="col stakedMagicWand">
+            <a href="javascript:selectAllOrcsStake();" class="btn btn-full btn-minus" id="selectUnstakedOrcs">Select all</a>
+            <p>djsahjksad</p>
+          </div>
+        </div>
+
+        <h2 class="unstakedHeader">UNSTAKED</h2>
+         
         
+        <div class="col UnstakedOrcsMainSection" id="bigSection">
+          <a href="javascript:selectAllOrcsStake();" class="btn btn-full btn-minus" id="selectUnstakedOrcs">Select all</a>
+          <!-- <button class="bigSectionButtons buttonSelect">Select All</button> -->
+          <div class="col stakingcol d-grid flex-wrap justify-content-center UnstakedOrcsTemporary" id="UnstakedOrcs">
+              
+          </div>
           
+          <a href="javascript:stakeOrcs();" class="btn btn-full btn-small ButtonStakeOrc">Stake Orc</a>
+        </div>
 
-      </div>
-
-     
-
-      <a href="javascript:claimElfRewards();" class="btn btn-full btn-small ButtonClaimElf" style="margin-right:5px; margin-left: 5px;">Claim $MANA (25%tax)</a>
-      <a href="javascript:unstakeElfs();" class="btn btn-full btn-small ButtonUnstakeElf" style="margin-right:5px; margin-left: 5px;">Unstake</a>
-    </div>
+        <div class="col unstakedMysticAndWand">
+          <div class="col unstakedMysticTree">
+            <a href="javascript:selectAllOrcsStake();" class="btn btn-full btn-minus" id="selectUnstakedOrcs">Select all</a>
+            <p>fdsjkfs</p>
+          </div>
+          <div class="col unstakedMagicWand">
+            <a href="javascript:selectAllOrcsStake();" class="btn btn-full btn-minus" id="selectUnstakedOrcs">Select all</a>
+            <p>djsahjksad</p>
+          </div>
+        </div>
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>   
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- <script src="./functions.js"></script> -->
 </body>
 </html>
