@@ -34,17 +34,17 @@ async function getImageNFT(){
       idToImage.set(allIds[i],json.image);
     }
     catch(error) {
-      if(stakedElfsArray.includes(id)){
-        stakedElfsArray.remove(id);
+      if(stakedElfsArray.includes(allIds[i])){
+        stakedElfsArray.remove(allIds[i]);
       }
-      else if(stakedOrcsArray.includes(id)){
-        stakedOrcsArray.remove(id);
+      else if(stakedOrcsArray.includes(allIds[i])){
+        stakedOrcsArray.remove(allIds[i]);
       }
-      else if(unstakedElfsArray.includes(id)){
-        unstakedElfsArray.remove(id);
+      else if(unstakedElfsArray.includes(allIds[i])){
+        unstakedElfsArray.remove(allIds[i]);
       }
-      else if(unstakedOrcsArray.includes(id)){
-        unstakedOrcsArray.remove(id);
+      else if(unstakedOrcsArray.includes(allIds[i])){
+        unstakedOrcsArray.remove(allIds[i]);
       }
     }
   }
