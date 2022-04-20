@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="../elf.jpeg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.css">   
+    <link rel="stylesheet" href="styles.css">
+
+    <title>Elf Game Update</title>
+</head>
+<body>
+    <h2 class="stakedHeader">STAKED ELVES</h2>
+
+    <div class="col StakedElfsMainSection" id="bigSection">
+      <a href="javascript:selectAllElfsStake();" class="btn btn-full btn-minus" id="selectStakedElfs" >Select all</a>
+     
+      <div class="col stakingcol d-grid flex-wrap justify-content-center StakedElfsTemporary" id="stakedElfs">
+        
+         
+          
+      </div>
+      <a href="javascript:claimOrcRewards();" class="btn btn-full btn-small ButtonClaimOrc"  style="margin-right:5px; margin-left: 5px;" >Claim $MANA</a>  
+      <a href="javascript:unstakeOrcs();" class="btn btn-full btn-small ButtonUnstakeOrc"  style="margin-right:5px; margin-left: 5px;" >Unstake</a>
+      <a href="javascript:ambush();" class="btn btn-full btn-small ButtonAmbush"   style="margin-right:5px; margin-left: 5px;">Ambush</a>
+    </div>
+
+    <h2 class="stakedHeader">UNSTAKED ELVES</h2>
+
+    <div class="col UnstakedElfsMainSection" id="bigSection">
+      <a href="javascript:selectAllElfsStake();" class="btn btn-full btn-minus" id="selectUnstakedElfs">Select all</a>
+      <!-- <button class="bigSectionButtons buttonSelect">Select All</button> -->
+      <div class="col stakingcol d-grid justify-content-center flex-wrap StakedElfsTemporary" id="unstakedElfs">
+        
+          
+
+      </div>
+
+     
+
+      <a href="javascript:claimElfRewards();" class="btn btn-full btn-small ButtonClaimElf" style="margin-right:5px; margin-left: 5px;">Claim $MANA (25%tax)</a>
+      <a href="javascript:unstakeElfs();" class="btn btn-full btn-small ButtonUnstakeElf" style="margin-right:5px; margin-left: 5px;">Unstake</a>
+    </div>
+</body>
+</html>
