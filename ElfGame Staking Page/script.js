@@ -211,14 +211,14 @@ async function loadNFTs() {
 
 // Display NFTs
 
-async function displayUnstaked() {
-    await displayUnstakedNFTS("Elf");
-    await displayUnstakedNFTS("Orc");
+function displayUnstaked() {
+    displayUnstakedNFTS("Elf");
+    displayUnstakedNFTS("Orc");
 }
 
-async function displayStaked() {
-    await displayStakedNFTS("Elf");
-    await displayStakedNFTS("Orc");
+function displayStaked() {
+    displayStakedNFTS("Elf");
+    displayStakedNFTS("Orc");
 }
 
 async function displayStakedNFTS(type){
