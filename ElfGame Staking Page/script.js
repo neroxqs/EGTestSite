@@ -200,6 +200,9 @@ async function loadStakedNFTs() {
         }
     });
 
+    console.log(stakedElfsJSONArray);
+    console.log(stakedOrcsJSONArray);
+
     resfreshMetadata(metadataRefreshStaked);
 
     displayStaked();
