@@ -2,8 +2,8 @@
 
 var json;
 
-var unstakedElfsArray;
-var unstakedOrcsArray;
+var unstakedElfsJSONArray;
+var unstakedOrcsJSONArray;
 
 // Moralis info
 const serverUrl = "https://xiyygzf4lnms.usemoralis.com:2053/server";
@@ -71,14 +71,16 @@ async function loadNFT() {
     console.log(NFTs.result);
 
     NFTs.result.forEach(NFT => {
-        console.log(NFT);
-        if(NFT.metadata.name.includes("Elf")){
-            unstakedElfsArray.push(NFT);
+        if(JSON.parse(NFT.metadata).name.includes("Elf")){
+            unstakedElfsJSONArray.push(NFT);
         }
-        else if(NFT.metadata.name.includes("Orc")){
-            unstakedOrcsArray.push(NFT);
+        else if(JSON.parse(NFT.metadata).name.includes("Orc")){
+            unstakedOrcsJSONArray.push(NFT);
         }
     });
+
+    console.log(unstakedElfsJSONArray);
+    console.log(unstakedOrcsJSONArray);
 }
 
 // Load Web3 and Moralis
