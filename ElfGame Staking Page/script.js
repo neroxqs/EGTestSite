@@ -167,7 +167,7 @@ async function loadUnstakedNFTs() {
         }
     });
 
-    resfreshMetadata(metadataRefreshUnstaked);
+    //resfreshMetadata(metadataRefreshUnstaked);
     displayUnstaked();
 }
 
@@ -203,8 +203,7 @@ async function loadStakedNFTs() {
     console.log(stakedElfsJSONArray);
     console.log(stakedOrcsJSONArray);
 
-    resfreshMetadata(metadataRefreshStaked);
-
+    //resfreshMetadata(metadataRefreshStaked);
     displayStaked();
 }
 
