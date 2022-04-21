@@ -179,7 +179,7 @@ async function loadStakedNFTs() {
     stakedElfsJSONArray = new Array();
     stakedOrcsJSONArray = new Array();
 
-    allStakedIDs.forEach(async function(id){
+    await allStakedIDs.forEach(async function(id){
         options = {
             address: json.mintContractAddress,
             token_id: "" + id,
