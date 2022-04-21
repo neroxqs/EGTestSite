@@ -395,8 +395,8 @@ async function load() {
 async function stakeElfs(){
     var arrayChecked = new Array();
     
-    unstakedElfsArray.forEach(function(id){
-      var nft = document.getElementById("nft" + id);
+    unstakedElfsJSONArray.forEach(function(NFT_JSON){
+      var nft = document.getElementById("nft" + NFT_JSON.token_id);
       
       if (nft.className == 'selectedUnstaked') {
         arrayChecked.push(id);
