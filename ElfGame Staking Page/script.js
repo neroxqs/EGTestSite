@@ -90,7 +90,7 @@ async function resfreshMetadata(array) {
             flag: "uri"
         };
 
-        const metadata = await Moralis.Web3API.token.reSyncMetadata(options2);
+        await Moralis.Web3API.token.reSyncMetadata(options2);
     }
 }
 
@@ -99,14 +99,11 @@ async function resfreshMetadata(array) {
 async function loadStakedElfs(){
     var id;
     var tokenInfo;
-    var uri;
     stakedElfsArray = new Array();
-  
-    const accounts = await getAccounts();
-    const lengthElfs = await window.stakeContract.methods.numberOfStakedElfs(accounts[0]).call();
+    const lengthElfs = await window.stakeContract.methods.numberOfStakedElfs(account).call();
   
     for (let i = 0; i < lengthElfs; i++) {
-      id = await window.stakeContract.methods.elfStakingsByOwner(accounts[0],i).call();
+      id = await window.stakeContract.methods.elfStakingsByOwner(account,i).call();
       tokenInfo = await window.stakeContract.methods.elfStakings(id).call();
   
       stakedElfsArray.push(id);
@@ -118,14 +115,11 @@ async function loadStakedElfs(){
 async function loadStakedOrcs(){
     var id;
     var tokenInfo;
-    var uri;
     stakedOrcsArray = new Array();
-  
-    const accounts = await getAccounts();
-    const lengthOrcs = await window.stakeContract.methods.numberOfStakedOrcs(accounts[0]).call();
+    const lengthOrcs = await window.stakeContract.methods.numberOfStakedOrcs(account).call();
   
     for (let i = 0; i < lengthOrcs; i++) {
-      id = await window.stakeContract.methods.orcStakingsByOwner(accounts[0],i).call();
+      id = await window.stakeContract.methods.orcStakingsByOwner(account,i).call();
       tokenInfo = await window.stakeContract.methods.orcStakings(id).call();
       
       stakedOrcsArray.push(id);
@@ -211,12 +205,12 @@ async function loadNFTs() {
 
 // Display NFTs
 
-function displayUnstaked() {
+async function displayUnstaked() {
     displayUnstakedNFTS("Elf");
     displayUnstakedNFTS("Orc");
 }
 
-function displayStaked() {
+async function displayStaked() {
     displayStakedNFTS("Elf");
     displayStakedNFTS("Orc");
 }
