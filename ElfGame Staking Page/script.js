@@ -2,8 +2,8 @@
 
 var json;
 
-var unstakedElfsJSONArray;
-var unstakedOrcsJSONArray;
+var unstakedElfsJSONArray = new Array();
+var unstakedOrcsJSONArray = new Array();
 
 // Moralis info
 const serverUrl = "https://xiyygzf4lnms.usemoralis.com:2053/server";
