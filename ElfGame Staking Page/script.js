@@ -396,12 +396,12 @@ async function load() {
     // Get current account
     account = (await getAccounts())[0];
 
+    // Loading contracts
+    await loadContracts();
+
     // Update mana price
 
     updatePrice();
-
-    // Loading contracts
-    await loadContracts();
 
     // Load and display NFTs
     loadNFTs();
