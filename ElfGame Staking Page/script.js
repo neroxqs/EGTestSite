@@ -205,8 +205,8 @@ async function loadStakedNFTs() {
 }
 
 async function loadNFTs() {
-    loadUnstakedNFTs();
-    loadStakedNFTs();
+    await loadUnstakedNFTs();
+    await loadStakedNFTs();
 }
 
 // Display NFTs
