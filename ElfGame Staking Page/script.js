@@ -27,6 +27,18 @@ function toFormatString(tStruct){
     return res;
 }
 
+function time(ms) {
+    var d, h, m, s;
+    if (isNaN(ms)) {
+        return {};
+    }
+    d = ms / (1000 * 60 * 60 * 24);
+    h = (d - ~~d) * 24;
+    m = (h - ~~h) * 60;
+    s = (m - ~~m) * 60;
+    return {d: ~~d, h: ~~h, m: ~~m, s: ~~s};
+}
+
 // Moralis info
 const serverUrl = "https://xiyygzf4lnms.usemoralis.com:2053/server";
 const appId = "Cz4mSGYi6GQR6l16MLlzFC4OVvPM5vrfVPaV7zVJ";
