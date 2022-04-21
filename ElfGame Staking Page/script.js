@@ -7,6 +7,8 @@ var allStakedIDs;
 var stakedElfsArray;
 var stakedOrcsArray;
 
+var stakedElfsJSONArray;
+var stakedOrcsJSONArray;
 var unstakedElfsJSONArray;
 var unstakedOrcsJSONArray;
 
@@ -172,7 +174,7 @@ async function loadUnstakedNFTs() {
 async function loadStakedNFTs() {
     await loadStakedIDs();
 
-    var metadataRefreshStaked;
+    var metadataRefreshStaked = new Array();
     var NFT;
     var options;
 
@@ -186,10 +188,10 @@ async function loadStakedNFTs() {
         NFT = await Moralis.Web3API.token.getTokenIdMetadata(options);
 
         if(JSON.parse(NFT.metadata).name.includes("Elf")){
-            unstakedElfsJSONArray.push(NFT);
+            stakedElfsJSONArray.push(NFT);
         }
         else if(JSON.parse(NFT.metadata).name.includes("Orc")){
-            unstakedOrcsJSONArray.push(NFT);
+            stakedOrcsJSONArray.push(NFT);
         }
         else if(JSON.parse(NFT.metadata) === null){
             metadataRefreshStaked.push(NFT.token_id);
@@ -237,10 +239,10 @@ async function displayStakedNFTS(type){
       var buttonAmbush = document.getElementsByClassName('ButtonAmbush');
       mainSection[0].appendChild(buttonAmbush[0]);
   
-      await drawNFT(stakedOrcsArray,newSection,true);
+      await drawNFT(stakedOrcsJSONArray,newSection,true);
     }
     else if(type == "Elf"){
-      await drawNFT(stakedElfsArray,newSection,true);
+      await drawNFT(stakedElfsJSONArray,newSection,true);
     }
 }
 
