@@ -61,7 +61,6 @@ async function loadContracts() {
 // Load NFT's
 
 async function loadNFT() {
-    console.log(json.mintContractAddress);
     const options = {
         chain: chainName,
         token_address: json.mintContractAddress
@@ -72,6 +71,7 @@ async function loadNFT() {
     console.log(NFTs.result);
 
     NFTs.result.forEach(NFT => {
+        console.log(NFT);
         if(NFT.metadata.name.includes("Elf")){
             unstakedElfsArray.push(NFT);
         }
