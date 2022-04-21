@@ -461,6 +461,7 @@ async function mintWithMana(){
     price = price.toLocaleString('fullwide', {useGrouping:false});
   
     var allowance = await window.manaContract.methods.allowance(accounts[0], json.mintContractAddress).call();
+    allowance = allowance.toLocaleString('fullwide', {useGrouping:false});
     
     if(allowance < price){
         await window.manaContract.methods.approve(json.mintContractAddress, price).send({ from: accounts[0] });
