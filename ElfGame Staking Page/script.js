@@ -39,6 +39,20 @@ function time(ms) {
     return {d: ~~d, h: ~~h, m: ~~m, s: ~~s};
 }
 
+// Update page
+
+async function updatePrice() {
+    var numberBox = document.getElementById("inputMintAmount");
+    var manaInfo = document.getElementById("manaInfo");
+  
+    var price = await window.mintContract.methods.manaPrice(numberBox.value).call();
+    price = price * numberBox.value;
+    
+    var text = (numberBox.value == 1) ? "MINT" : "MINTS";
+    
+    manaInfo.innerHTML = numberBox.value + " " + text + " = " + (price/10**18) + " $MANA";
+}
+
 // Moralis info
 const serverUrl = "https://xiyygzf4lnms.usemoralis.com:2053/server";
 const appId = "Cz4mSGYi6GQR6l16MLlzFC4OVvPM5vrfVPaV7zVJ";
@@ -381,6 +395,10 @@ async function load() {
 
     // Get current account
     account = (await getAccounts())[0];
+
+    // Update mana price
+
+    updatePrice();
 
     // Loading contracts
     await loadContracts();
