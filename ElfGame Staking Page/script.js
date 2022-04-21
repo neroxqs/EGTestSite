@@ -72,10 +72,10 @@ async function loadNFT() {
     console.log(NFTs.result);
 
     NFTs.result.forEach(NFT => {
-        if(NFT.metadata.name.contains("Elf")){
+        if(NFT.metadata.name.includes("Elf")){
             unstakedElfsArray.push(NFT);
         }
-        else{
+        else if(NFT.metadata.name.includes("Orc")){
             unstakedOrcsArray.push(NFT);
         }
     });
