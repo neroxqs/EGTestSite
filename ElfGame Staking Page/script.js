@@ -17,6 +17,16 @@ var stakingTimestamp = new Map();
 var stakedElfsInfo = new Map();
 var stakedOrcsInfo = new Map();
 
+// String format
+
+function toFormatString(tStruct){
+    var res = '';
+    if (typeof tStruct === 'object'){
+        res += tStruct.d + ':'+ ((tStruct.h<10) ? ('0'+tStruct.h):(tStruct.h)) + ':' + ((tStruct.m<10) ? ('0'+tStruct.m):(tStruct.m)) + ':' + ((tStruct.s<10) ? ('0'+tStruct.s):(tStruct.s));
+    }
+    return res;
+}
+
 // Moralis info
 const serverUrl = "https://xiyygzf4lnms.usemoralis.com:2053/server";
 const appId = "Cz4mSGYi6GQR6l16MLlzFC4OVvPM5vrfVPaV7zVJ";
