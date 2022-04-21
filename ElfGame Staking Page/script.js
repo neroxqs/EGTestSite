@@ -392,6 +392,42 @@ async function load() {
 
 }
 
+// Button functions
+
+async function stakeElfs(){
+    var arrayChecked = new Array();
+    
+    unstakedElfsArray.forEach(function(id){
+      var nft = document.getElementById("nft" + id);
+      
+      if (nft.className == 'selectedUnstaked') {
+        arrayChecked.push(id);
+    }
+    });
+  
+    if(arrayChecked.length > 0){
+      var json = await getContractsJSON();
+      
+      var approved = await window.mintContract.methods.isApprovedForAll(account, json.stakeContractAddress).call();
+      if(approved){
+        await window.stakeContract.methods.batchStakeElf(arrayChecked).send({ from: account });
+  
+        loadTokens();
+        updateTotalStakedElfs();
+      }
+      else{
+        await window.mintContract.methods.setApprovalForAll(json.stakeContractAddress, true).send({ from: account });
+        await window.stakeContract.methods.batchStakeElf(arrayChecked).send({ from: account });
+  
+        loadTokens();
+        updateTotalStakedElfs();
+      }
+    }
+    else{
+      alert("Select a unstaked elf.");
+    }
+}
+
 // Function calls and variable initialization
 
 load();
