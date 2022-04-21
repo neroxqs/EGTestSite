@@ -168,7 +168,6 @@ async function loadUnstakedNFTs() {
     });
 
     resfreshMetadata(metadataRefreshUnstaked);
-    displayUnstaked();
 }
 
 async function loadStakedNFTs() {
@@ -201,12 +200,14 @@ async function loadStakedNFTs() {
     });
 
     resfreshMetadata(metadataRefreshStaked);
-    displayStaked();
 }
 
 async function loadNFTs() {
     await loadUnstakedNFTs();
     await loadStakedNFTs();
+
+    displayUnstaked();
+    displayStaked();
 }
 
 // Display NFTs
