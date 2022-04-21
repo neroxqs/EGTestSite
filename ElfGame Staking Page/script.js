@@ -392,6 +392,60 @@ async function load() {
 
 // Button functions
 
+async function decrease(){
+    var numberBox = document.getElementById("inputMintAmount");
+    var buttonDecrease = document.getElementsByClassName("minus");
+    var buttonIncrease = document.getElementsByClassName("plus");
+    
+    if(numberBox.value > 1){
+      numberBox.value = parseInt(numberBox.value) - 1;
+      
+      updatePrice();
+      
+      if(numberBox.value == 1){
+        buttonDecrease[0].disabled = true;
+      }
+      
+      if(buttonIncrease[0].disabled){
+        buttonIncrease[0].disabled = false;
+      }
+    }
+}
+  
+async function increase(){
+    var numberBox = document.getElementById("inputMintAmount");
+    var buttonDecrease = document.getElementsByClassName("minus");
+    var buttonIncrease = document.getElementsByClassName("plus");
+    
+    if(numberBox.value < 10){
+      numberBox.value = parseInt(numberBox.value) + 1;
+      
+      updatePrice();
+      
+      if(numberBox.value == 10){
+        buttonIncrease[0].disabled = true;
+      }
+      
+      if(buttonDecrease[0].disabled){
+        buttonDecrease[0].disabled = false;
+      }
+    }
+}
+
+  
+async function mintWithMana(){
+    var numberBox = document.getElementById("inputMintAmount");
+    var json = await getContractsJSON();
+    const accounts = await getAccounts();
+  
+    var price = await window.mintContract.methods.manaPrice(numberBox.value).call();
+    price = price * numberBox.value;
+    price = price.toLocaleString('fullwide', {useGrouping:false});
+  
+    await window.manaContract.methods.approve(json.mintContractAddress, price).send({ from: accounts[0] });
+    await window.mintContract.methods.buyWithMana(numberBox.value).send({ from: accounts[0] });
+}
+
 async function stakeElfs(){
     var arrayChecked = new Array();
     
