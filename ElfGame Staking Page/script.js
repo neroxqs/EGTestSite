@@ -1,6 +1,9 @@
-// Global ariables
+// Global variables
 
 var json;
+
+var unstakedElfsArray;
+var unstakedOrcsArray;
 
 // Moralis info
 const serverUrl = "https://xiyygzf4lnms.usemoralis.com:2053/server";
@@ -67,6 +70,15 @@ async function loadNFT() {
     const NFTs = await Moralis.Web3API.account.getNFTsForContract(options);
 
     console.log(NFTs.result);
+
+    NFTs.result.forEach(NFT => {
+        if(NFT.metadata.name.contains("Elf")){
+            unstakedElfsArray.push(NFT);
+        }
+        else{
+            unstakedOrcsArray.push(NFT);
+        }
+    });
 }
 
 // Load Web3 and Moralis
