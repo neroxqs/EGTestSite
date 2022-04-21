@@ -168,6 +168,7 @@ async function loadUnstakedNFTs() {
     });
 
     resfreshMetadata(metadataRefreshUnstaked);
+    displayUnstaked();
 }
 
 async function loadStakedNFTs() {
@@ -179,7 +180,7 @@ async function loadStakedNFTs() {
     stakedElfsJSONArray = new Array();
     stakedOrcsJSONArray = new Array();
 
-    await allStakedIDs.forEach(async function(id){
+    allStakedIDs.forEach(async function(id){
         options = {
             address: json.mintContractAddress,
             token_id: "" + id,
@@ -200,14 +201,12 @@ async function loadStakedNFTs() {
     });
 
     resfreshMetadata(metadataRefreshStaked);
+    displayStaked();
 }
 
 async function loadNFTs() {
     await loadUnstakedNFTs();
     await loadStakedNFTs();
-
-    displayUnstaked();
-    displayStaked();
 }
 
 // Display NFTs
