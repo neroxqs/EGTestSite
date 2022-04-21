@@ -167,7 +167,7 @@ async function loadUnstakedNFTs() {
         }
     });
 
-    //resfreshMetadata(metadataRefreshUnstaked);
+    resfreshMetadata(metadataRefreshUnstaked);
     displayUnstaked();
 }
 
@@ -203,7 +203,7 @@ async function loadStakedNFTs() {
     console.log(stakedElfsJSONArray);
     console.log(stakedOrcsJSONArray);
 
-    //resfreshMetadata(metadataRefreshStaked);
+    resfreshMetadata(metadataRefreshStaked);
     displayStaked();
 }
 
@@ -273,14 +273,7 @@ async function displayUnstakedNFTS(type){
 
 async function drawNFT(typeArray, section, staked){
     typeArray.forEach(function(NFT_JSON) {
-        var id;
-
-        if(staked){
-            id = 1;
-        }
-        else{
-            id = NFT_JSON.token_id;
-        }
+        var id = NFT_JSON.token_id;
 
         var nft = document.createElement('section');
       
