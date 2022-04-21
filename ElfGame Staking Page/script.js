@@ -399,7 +399,7 @@ async function stakeElfs(){
       var nft = document.getElementById("nft" + NFT_JSON.token_id);
       
       if (nft.className == 'selectedUnstaked') {
-        arrayChecked.push(id);
+        arrayChecked.push(NFT_JSON.token_id);
     }
     });
   
