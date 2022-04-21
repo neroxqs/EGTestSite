@@ -269,9 +269,9 @@ async function displayUnstakedNFTS(type){
 }
 
 async function drawNFT(typeArray, section, staked){
-    typeArray.forEach(async function(NFT_JSON) {
+    typeArray.forEach(function(NFT_JSON) {
+        console.log(NFT_JSON);
         var id = NFT_JSON.token_id;
-        console.log(id);
 
         var nft = document.createElement('section');
       
