@@ -84,6 +84,8 @@ async function loadWeb3() {
 // Load site
 
 async function load() {
+    json = await getContractsJSON();
+
     await loadWeb3();
 
     checkNetwork();
@@ -95,7 +97,5 @@ async function load() {
 }
 
 // Function calls and variable initialization
-
-json = await getContractsJSON();
 
 load();
