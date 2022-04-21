@@ -1,9 +1,19 @@
 // Global variables
 
 var json;
+var account;
 
-var unstakedElfsJSONArray = new Array();
-var unstakedOrcsJSONArray = new Array();
+var allStakedIDs;
+var stakedElfsArray;
+var stakedOrcsArray;
+
+var unstakedElfsJSONArray;
+var unstakedOrcsJSONArray;
+
+var stakingTimestamp = new Map();
+
+var stakedElfsInfo = new Map();
+var stakedOrcsInfo = new Map();
 
 // Moralis info
 const serverUrl = "https://xiyygzf4lnms.usemoralis.com:2053/server";
@@ -26,6 +36,12 @@ async function checkNetwork() {
       alert("Unable to retrieve netwok information.");
       window.location.href = "../index.html";
     });
+}
+
+// Metamask account address
+
+async function getAccounts(){
+    return await ethereum.request({ method: 'eth_accounts' });
 }
 
 // Loading contracts
@@ -58,17 +74,84 @@ async function loadContracts() {
     window.wethContract = await loadWethContract();
 }
 
-// Load NFT's
+// Refresh metadata
+
+async function resfreshMetadata(array) {
+    for (let i = 0; i < array.length; i++) {
+
+        await sleep(2000);
+
+        const options2 = {
+            chain: chainName,
+            address: json.mintContractAddress,
+            token_id: ""+array[i],
+            flag: "uri"
+        };
+
+        const metadata = await Moralis.Web3API.token.reSyncMetadata(options2);
+    }
+}
+
+// Load user staked NFT's
+
+async function loadStakedElfs(){
+    var id;
+    var tokenInfo;
+    var uri;
+    stakedElfsArray = new Array();
+  
+    const accounts = await getAccounts();
+    const lengthElfs = await window.stakeContract.methods.numberOfStakedElfs(accounts[0]).call();
+  
+    for (let i = 0; i < lengthElfs; i++) {
+      id = await window.stakeContract.methods.elfStakingsByOwner(accounts[0],i).call();
+      tokenInfo = await window.stakeContract.methods.elfStakings(id).call();
+  
+      stakedElfsArray.push(id);
+      stakingTimestamp.set(id ,new Date(tokenInfo.timestamp*1000));
+      stakedElfsInfo.set(id, tokenInfo);
+    }
+}
+
+async function loadStakedOrcs(){
+    var id;
+    var tokenInfo;
+    var uri;
+    stakedOrcsArray = new Array();
+  
+    const accounts = await getAccounts();
+    const lengthOrcs = await window.stakeContract.methods.numberOfStakedOrcs(accounts[0]).call();
+  
+    for (let i = 0; i < lengthOrcs; i++) {
+      id = await window.stakeContract.methods.orcStakingsByOwner(accounts[0],i).call();
+      tokenInfo = await window.stakeContract.methods.orcStakings(id).call();
+      
+      stakedOrcsArray.push(id);
+      stakingTimestamp.set(id ,new Date(tokenInfo.timestamp*1000));
+      stakedOrcsInfo.set(id, tokenInfo);
+    }
+}
+
+async function loadStakedIDs() {
+    await loadStakedElfs();
+    await loadStakedOrcs();
+
+    allStakedIDs = stakedElfsArray.concat(stakedOrcsArray);
+}
+
+// Load NFT's info
 
 async function loadUnstakedNFTs() {
+    var metadataRefreshUnstaked = new Array();
+    unstakedElfsJSONArray = new Array();
+    unstakedOrcsJSONArray = new Array();
+
     const options = {
         chain: chainName,
         token_address: json.mintContractAddress
     };
 
     const NFTs = await Moralis.Web3API.account.getNFTsForContract(options);
-
-    console.log(NFTs.result);
 
     NFTs.result.forEach(NFT => {
         if(JSON.parse(NFT.metadata).name.includes("Elf")){
@@ -77,9 +160,50 @@ async function loadUnstakedNFTs() {
         else if(JSON.parse(NFT.metadata).name.includes("Orc")){
             unstakedOrcsJSONArray.push(NFT);
         }
+        else if(JSON.parse(NFT.metadata) === null){
+            metadataRefreshUnstaked.push(NFT.token_id);
+        }
     });
 
+    resfreshMetadata(metadataRefreshUnstaked);
     displayUnstaked();
+}
+
+async function loadStakedNFTs() {
+    await loadStakedIDs();
+
+    var metadataRefreshStaked;
+    var NFT;
+    var options;
+
+    allUnstakedIDs.forEach(async function(id){
+        options = {
+            address: json.mintContractAddress,
+            token_id: "" + id,
+            chain: chainName
+        };
+
+        NFT = await Moralis.Web3API.token.getTokenIdMetadata(options);
+
+        if(JSON.parse(NFT.metadata).name.includes("Elf")){
+            unstakedElfsJSONArray.push(NFT);
+        }
+        else if(JSON.parse(NFT.metadata).name.includes("Orc")){
+            unstakedOrcsJSONArray.push(NFT);
+        }
+        else if(JSON.parse(NFT.metadata) === null){
+            metadataRefreshStaked.push(NFT.token_id);
+        }
+    });
+
+    resfreshMetadata(metadataRefreshStaked);
+
+    displayStaked();
+}
+
+async function loadNFTs() {
+    loadUnstakedNFTs();
+    loadStakedNFTs();
 }
 
 // Display NFTs
@@ -87,6 +211,37 @@ async function loadUnstakedNFTs() {
 async function displayUnstaked() {
     displayUnstakedNFTS("Elf");
     displayUnstakedNFTS("Orc");
+}
+
+async function displayStaked() {
+    displayStakedNFTS("Elf");
+    displayStakedNFTS("Orc");
+}
+
+async function displayStakedNFTS(type){
+    var mainSection = document.getElementsByClassName('Staked'+ type +'sMainSection');
+    var temporarySection  = document.getElementsByClassName('Staked'+ type +'sTemporary');
+  
+    var buttonClaim = document.getElementsByClassName('ButtonClaim'+type);
+    var buttonUnstake = document.getElementsByClassName('ButtonUnstake'+type);
+  
+    var newSection = document.createElement('div');
+    newSection.className = 'Staked'+ type +'sTemporary';
+  
+    mainSection[0].removeChild(temporarySection[0]);
+    mainSection[0].appendChild(newSection);
+    mainSection[0].appendChild(buttonClaim[0]);
+    mainSection[0].appendChild(buttonUnstake[0]);
+  
+    if(type == "Orc"){
+      var buttonAmbush = document.getElementsByClassName('ButtonAmbush');
+      mainSection[0].appendChild(buttonAmbush[0]);
+  
+      await drawNFT(stakedOrcsArray,newSection,true);
+    }
+    else if(type == "Elf"){
+      await drawNFT(stakedElfsArray,newSection,true);
+    }
 }
 
 async function displayUnstakedNFTS(type){
@@ -112,7 +267,15 @@ async function displayUnstakedNFTS(type){
 
 async function drawNFT(typeArray, section, staked){
     typeArray.forEach(function(NFT_JSON) {
-        var id = NFT_JSON.token_id;
+        var id;
+
+        if(staked){
+            id = 1;
+        }
+        else{
+            id = NFT_JSON.token_id;
+        }
+
         var nft = document.createElement('section');
       
         if(staked){
@@ -196,15 +359,23 @@ async function loadWeb3() {
 // Load site
 
 async function load() {
+    // Loading contracts info
     json = await getContractsJSON();
 
+    // Loading Web3 and Moralis
     await loadWeb3();
 
+    // Checking metamask network
     checkNetwork();
 
+    // Get current account
+    account = (await getAccounts())[0];
+
+    // Loading contracts
     await loadContracts();
 
-    loadUnstakedNFTs();
+    // Load and display NFTs
+    loadNFTs();
 
 }
 
