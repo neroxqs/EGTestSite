@@ -58,10 +58,10 @@ async function loadContracts() {
 // Load NFT's
 
 async function loadNFT() {
-    console.log(json.mintContractABI);
+    console.log(json.mintContractAddress);
     const options = {
         chain: chainName,
-        token_address: "0x644A21382a8971D7a56073C459e72F08AC6f17C3"
+        token_address: json.mintContractAddress
     };
 
     const NFTs = await Moralis.Web3API.account.getNFTsForContract(options);
