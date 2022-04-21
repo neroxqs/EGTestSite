@@ -176,7 +176,7 @@ async function loadStakedNFTs() {
     var NFT;
     var options;
 
-    allUnstakedIDs.forEach(async function(id){
+    allStakedIDs.forEach(async function(id){
         options = {
             address: json.mintContractAddress,
             token_id: "" + id,
