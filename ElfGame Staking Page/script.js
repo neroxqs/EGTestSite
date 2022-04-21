@@ -221,8 +221,8 @@ async function loadStakedNFTs() {
 }
 
 async function loadNFTs() {
-    await loadUnstakedNFTs();
-    await loadStakedNFTs();
+    loadUnstakedNFTs();
+    loadStakedNFTs();
 }
 
 // Display NFTs
@@ -412,15 +412,13 @@ async function stakeElfs(){
       if(approved){
         await window.stakeContract.methods.batchStakeElf(arrayChecked).send({ from: account });
   
-        loadTokens();
-        updateTotalStakedElfs();
+        loadNFTs();
       }
       else{
         await window.mintContract.methods.setApprovalForAll(json.stakeContractAddress, true).send({ from: account });
         await window.stakeContract.methods.batchStakeElf(arrayChecked).send({ from: account });
   
-        loadTokens();
-        updateTotalStakedElfs();
+        loadNFTs();
       }
     }
     else{
