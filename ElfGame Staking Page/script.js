@@ -60,7 +60,7 @@ async function loadContracts() {
 
 // Load NFT's
 
-async function loadNFT() {
+async function loadUnstakedNFTs() {
     const options = {
         chain: chainName,
         token_address: json.mintContractAddress
@@ -79,8 +79,105 @@ async function loadNFT() {
         }
     });
 
-    console.log(unstakedElfsJSONArray);
-    console.log(unstakedOrcsJSONArray);
+    displayUnstaked();
+}
+
+// Display NFTs
+
+async function displayUnstaked() {
+    displayUnstakedNFTS("Elf");
+    displayUnstakedNFTS("Orc");
+}
+
+async function displayUnstakedNFTS(type){
+    var mainSection = document.getElementsByClassName('Unstaked'+ type +'sMainSection');
+    var temporarySection  = document.getElementsByClassName('Unstaked'+ type +'sTemporary');
+  
+    var buttonStake = document.getElementsByClassName('ButtonStake' + type);
+    mainSection[0].removeChild(temporarySection[0]);
+  
+    var newSection = document.createElement('div');
+    newSection.className = 'Unstaked'+ type +'sTemporary';
+  
+    mainSection[0].appendChild(newSection);
+    mainSection[0].appendChild(buttonStake[0]);
+  
+    if(type == "Orc"){
+      await drawNFT(unstakedOrcsJSONArray,newSection,false);
+    }
+    else if(type == "Elf"){
+      await drawNFT(unstakedElfsJSONArray,newSection,false);
+    }
+}
+
+async function drawNFT(typeArray, section, staked){
+    typeArray.forEach(function(NFT_JSON) {
+        var id = NFT_JSON.token_id;
+        var nft = document.createElement('section');
+      
+        if(staked){
+            nft.className = 'nftStaked';
+        }
+        else{
+            nft.className = 'nftUnstaked';
+        }
+        
+        nft.id = 'nft' + id;
+    
+        if(staked){
+            nft.onclick = function () {
+                if(document.getElementById('nft' + id).className == 'selectedStaked'){
+                    document.getElementById('nft' + id).className = 'nftStaked';
+                }
+                else{
+                    document.getElementById('nft' + id).className = 'selectedStaked';
+                }
+            }
+        }
+        else{
+            nft.onclick = function () {
+                if(document.getElementById('nft' + id).className == 'selectedUnstaked'){
+                    document.getElementById('nft' + id).className = 'nftUnstaked';
+                }
+                else{
+                    document.getElementById('nft' + id).className = 'selectedUnstaked';
+                }
+            }
+        }
+    
+        var imageHTML = document.createElement('img');
+        var img = JSON.parse(NFT_JSON.metadata).image.substring(7);
+        imageHTML.src = `https://gateway.moralisipfs.com/ipfs/${img}`;
+        imageHTML.id = 'NFTImage';
+        
+        var tokenIdParagraph = document.createElement('p');
+        tokenIdParagraph.id = 'idParagraph';
+        tokenIdParagraph.innerHTML = '#' + JSON.parse(NFT_JSON.metadata).name.split('#').pop();
+    
+        nft.append(imageHTML);
+        nft.append(tokenIdParagraph);
+    
+        if(staked){
+            var stakedDate = stakingTimestamp.get(id);
+            var currentDate = new Date();
+            var newDate = new Date(Math.abs(currentDate-stakedDate));
+    
+            var rewardAmount = document.createElement('p');
+            rewardAmount.id = "rewardTokensAmount"+id;
+            rewardAmount.className = "rewardTokensAmountClass";
+            rewardAmount.innerHTML = '0';
+    
+            var timeParagraph = document.createElement('p');
+            timeParagraph.className = 'timestampParagraph';
+            timeParagraph.id = 'counter' + id;
+            timeParagraph.innerHTML = toFormatString(time(newDate));
+    
+            nft.appendChild(rewardAmount);
+            nft.appendChild(timeParagraph);
+        }
+    
+        section.appendChild(nft);
+    });
 }
 
 // Load Web3 and Moralis
@@ -107,7 +204,7 @@ async function load() {
 
     await loadContracts();
 
-    loadNFT();
+    loadUnstakedNFTs();
 
 }
 
