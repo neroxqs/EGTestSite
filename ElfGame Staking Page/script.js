@@ -177,6 +177,8 @@ async function loadStakedNFTs() {
     var metadataRefreshStaked = new Array();
     var NFT;
     var options;
+    stakedElfsJSONArray = new Array();
+    stakedOrcsJSONArray = new Array();
 
     allStakedIDs.forEach(async function(id){
         options = {
