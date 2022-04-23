@@ -36,9 +36,21 @@
                         <p>How many do you want to mint?</p>
                     </div>
                     <div class="col mint">
-                        <p>1 mint = 120 $MANA</p>
+                        <!-- <p>1 mint = 120 $MANA</p>
                         <img src="sources/Buttons/Number-of-mints-button.png" alt="">
-                        <img class="button" src="sources/Buttons/ButtonMint.png" alt="">
+                        <img class="button" src="sources/Buttons/ButtonMint.png" alt=""> -->
+                        <div class="col mintAndWand">
+                          <div id="amountMintDiv">
+                            <div class="quantity buttons_added">
+                              <input disabled=true type="button" value="-" class="minus" onClick="decrease();"><input readonly id="inputMintAmount" type="number" step="1" min="1" max="10" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus" onClick="increase();">
+                            </div>
+                          </div>
+                          <div id="mintDiv">
+                            <a class ="buttonMint btn btn-full btn-plus" href="javascript:mintWithMana();">Mint with $MANA</a>
+                            <p id="mintedAmount"></p>
+                          </div>          
+                          
+                        </div>
                     </div>
                   </div>
              

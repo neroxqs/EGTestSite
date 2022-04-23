@@ -92,7 +92,7 @@ async function connect() {
   const accounts = await getAccounts();
 
   if(accounts.length>0){
-    updateAccounts(accounts[0]);
+    //updateAccounts(accounts[0]);
   }
   else{
     window.location.href = "../index.html";
@@ -471,7 +471,7 @@ async function load(){
   window.wethContract = await loadWethContract();
 
   displayMintedAmount();
-  updatePrice();
+  //updatePrice();
   await loadTokens();
   updateMana();
   updateTotalStakedElfs();
