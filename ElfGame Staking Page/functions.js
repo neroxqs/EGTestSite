@@ -346,10 +346,10 @@ async function displayStakedNFTS(type){
     var buttonAmbush = document.getElementsByClassName('ButtonAmbush');
     mainSection[0].appendChild(buttonAmbush[0]);
 
-    drawNFT(stakedOrcsArray,newSection,true);
+    await drawNFT(stakedOrcsArray,newSection,true);
   }
   else if(type == "Elf"){
-    drawNFT(stakedElfsArray,newSection,true);
+    await drawNFT(stakedElfsArray,newSection,true);
   }
 }
 
@@ -367,10 +367,10 @@ async function displayUnstakedNFTS(type){
   mainSection[0].appendChild(buttonStake[0]);
 
   if(type == "Orc"){
-    drawNFT(unstakedOrcsArray,newSection,false);
+    await drawNFT(unstakedOrcsArray,newSection,false);
   }
   else if(type == "Elf"){
-    drawNFT(unstakedElfsArray,newSection,false);
+    await drawNFT(unstakedElfsArray,newSection,false);
   }
 }
 
@@ -409,7 +409,7 @@ async function drawNFT(typeArray, section, staked){
     }
 
     var imageHTML = document.createElement('img');
-    //imageHTML.src = "https://ipfs.io/ipfs/" + idToImage.get(id).substring(7);
+    imageHTML.src = "https://ipfs.io/ipfs/" + idToImage.get(id).substring(7);
     imageHTML.id = 'NFTImage';
     
     var tokenIdParagraph = document.createElement('p');
@@ -447,7 +447,7 @@ async function loadTokens(){
   await loadStakedOrcs();
   await loadUnstakedElfsOrcs();
 
-  //await getImageNFT();
+  await getImageNFT();
 
   displayStakedNFTS("Elf");
   displayStakedNFTS("Orc");
