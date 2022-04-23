@@ -29,6 +29,7 @@ async function getImageNFT(){
 
   for (let i = 0; i < allIds.length; i++) {
     try{
+      console.log(idToURI.get(allIds[i]));
       response = await fetch(idToURI.get(allIds[i]));
       json = await response.json()
       idToImage.set(allIds[i],json.image);
