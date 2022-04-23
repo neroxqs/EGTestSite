@@ -346,10 +346,10 @@ async function displayStakedNFTS(type){
     var buttonAmbush = document.getElementsByClassName('ButtonAmbush');
     mainSection[0].appendChild(buttonAmbush[0]);
 
-    await drawNFT(stakedOrcsArray,newSection,true);
+    drawNFT(stakedOrcsArray,newSection,true);
   }
   else if(type == "Elf"){
-    await drawNFT(stakedElfsArray,newSection,true);
+    drawNFT(stakedElfsArray,newSection,true);
   }
 }
 
@@ -367,10 +367,10 @@ async function displayUnstakedNFTS(type){
   mainSection[0].appendChild(buttonStake[0]);
 
   if(type == "Orc"){
-    await drawNFT(unstakedOrcsArray,newSection,false);
+    drawNFT(unstakedOrcsArray,newSection,false);
   }
   else if(type == "Elf"){
-    await drawNFT(unstakedElfsArray,newSection,false);
+    drawNFT(unstakedElfsArray,newSection,false);
   }
 }
 
@@ -447,7 +447,7 @@ async function loadTokens(){
   await loadStakedOrcs();
   await loadUnstakedElfsOrcs();
 
-  //await getImageNFT();
+  await getImageNFT();
 
   displayStakedNFTS("Elf");
   displayStakedNFTS("Orc");
