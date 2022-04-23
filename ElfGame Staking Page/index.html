@@ -3,103 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/x-icon" href="elf.jpeg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/bootstrap.css">   
     <link rel="stylesheet" href="styles.css">
-    <title>Elf Game</title>
+    <title>Staking Page</title>
 </head>
 <body>
-  <a href="../index.html"><ion-icon name="arrow-back-circle-outline" class="backicon"></ion-icon></a>
     <div class="container">
-   
-        <div class="main row row-cols-1 row-cols-sm-2 row-cols-md-2 justify-content-center">
-          <div class="col" id="infoSection">
-            <p id="walletAddress">Your address: </p>
-            <p id="manaBalance">$MANA Balance amount: </p>
-            <p id="totalStakedElfs">Total elf staked: </p>
-            <p id="totalElfMana">Total $MANA collected by elfs:</p>
+        
+        <div class="row">
+            <div class="col info">
+                <div class="row">
+                    <div class="col manaInWallet">
+                        <img src="sources/Icons/Moneybox.png" alt="">
+                        <p>$MANA in wallet</p>
+                    </div>
+                    <div class="col manaCollected">        
+                        <img src="sources/Icons/Moneybag.png" alt="">
+                        <p>$MANA collected by Elfs</p>
+                    </div>
+                  </div>
+            </div>
+            
+            <div class="col mintMain">
+                <div class="row">
+                    <div class="col coins">
+                        <img src="sources/Icons/Coins.png" alt="">
+                        <p>How many do you want to mint?</p>
+                    </div>
+                    <div class="col mint">
+                        <p>1 mint = 120 $MANA</p>
+                        <img src="sources/Buttons/Number-of-mints-button.png" alt="">
+                        <img class="button" src="sources/Buttons/ButtonMint.png" alt="">
+                    </div>
+                  </div>
+             
+                
+                
+            </div>
           </div>
-          
-          <div class="col">
-            <div class="col mintAndWand">
-              <div id="amountMintDiv">
-                  <p id="manaInfo"></p>
-                <div class="quantity buttons_added">
-                  <input disabled=true type="button" value="-" class="minus" onClick="decrease();"><input readonly id="inputMintAmount" type="number" step="1" min="1" max="10" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus" onClick="increase();">
-                </div>
+
+          <img class="logo" src="sources/logo.png" alt="">
+
+        <div class="row row-cols-2 main">
+            <!--staked orcs-->
+          <div class="col StakedOrcsMainSection" id="bigSection">
+            <div class="row">
+                    <div class="col sectionHeader">
+                      <p>Orcs out roaming</p>
+                    </div>
+                    <div class="col">
+                      <img class="coinsButton selectButton" src="sources/Buttons/ButtonSelectAll.png" alt="" onclick="">
+                    </div>
+                  </div>
+            
+            
+            <div class="col stakingcol d-grid flex-wrap justify-content-center StakedOrcsTemporary" id="stakedOrcs">
+
+            </div>
+            <img class="coinsButton" src="sources/Buttons/ButtonCollectMana.png" alt="" onclick="">
+            <img class="coinsButton" src="sources/Buttons/ButtonAmbush.png" alt="" onclick="">
+            <img class="coinsButton" src="sources/Buttons/ButtonUnstakeAndClaim.png" alt="" onclick="">
+          </div>
+
+          <!--staked elfs-->
+          <div class="col StakedElfsMainSection" id="bigSection">
+            <div class="row">
+              <div class="col sectionHeader">
+                <p>Elfs out roaming</p>
               </div>
-              <div id="mintDiv">
-                <a class ="buttonMint btn btn-full btn-plus" href="javascript:mintWithMana();">Mint with $MANA</a>
-                <p id="mintedAmount"></p>
-              </div>          
+              <div class="col">
+                <img class="coinsButton selectButton" src="sources/Buttons/ButtonSelectAll.png" alt="" onclick="">
+              </div>
+            </div>
+            <div class="col stakingcol d-grid justify-content-center flex-wrap StakedElfsTemporary" id="stakedElfs">
+              
+
+            </div>
+            <img class="coinsButton" src="sources/Buttons/ButtonCollectMana.png" alt="" onclick="">
+            <img class="coinsButton" src="sources/Buttons/ButtonUnstakeAndClaim.png" alt="" onclick="">
+          </div>
+          <!--unstaked orcs-->
+          <div class="col UnstakedOrcsMainSection" id="bigSection">
+            <div class="row">
+              <div class="col sectionHeader">
+                <p>Unstaked Orcs</p>
+              </div>
+              <div class="col">
+                <img class="coinsButton selectButton" src="sources/Buttons/ButtonSelectAll.png" alt="" onclick="">
+              </div>
+            </div>
+            <div class="col stakingcol d-grid flex-wrap justify-content-center UnstakedOrcsTemporary" id="UnstakedOrcs">
               
             </div>
-          </div>  
- 
-          <h2 class="stakedHeader">STAKED</h2>
-
-        <div class="col StakedOrcsMainSection" id="bigSection">
-          <a href="javascript:selectAllOrcsUnstake();" class="btn btn-full btn-minus" id="selectStakedOrcs" >Select all</a>
-         
-          <div class="col stakingcol d-grid flex-wrap justify-content-center StakedOrcsTemporary" id="stakedOrcs">
-            
-             
-              
+            <img class="coinsButton" src="sources/Buttons/ButtonStake.png" alt="" onclick="">
           </div>
-          <a href="javascript:claimOrcRewards();" class="btn btn-full btn-small ButtonClaimOrc"  style="margin-right:5px; margin-left: 5px;" >Claim $MANA</a>  
-          <a href="javascript:unstakeOrcs();" class="btn btn-full btn-small ButtonUnstakeOrc"  style="margin-right:5px; margin-left: 5px;" >Unstake and Claim</a>
-          <a href="javascript:ambush();" class="btn btn-full btn-small ButtonAmbush"   style="margin-right:5px; margin-left: 5px;">Ambush</a>
-        </div>
-
-        <div class="col StakedElfsMainSection" id="bigSection">
-          <a href="javascript:selectAllElfsUnstake();" class="btn btn-full btn-minus" id="selectStakedElfs">Select all</a>
-          <!-- <button class="bigSectionButtons buttonSelect">Select All</button> -->
-          <div class="col stakingcol d-grid justify-content-center flex-wrap StakedElfsTemporary" id="stakedElfs">
-            
-              
-
-          </div>
-
-         
-
-          <a href="javascript:claimElfRewards();" class="btn btn-full btn-small ButtonClaimElf" style="margin-right:5px; margin-left: 5px;">Claim $MANA (25%tax)</a>
-          <a href="javascript:unstakeElfs();" class="btn btn-full btn-small ButtonUnstakeElf" style="margin-right:5px; margin-left: 5px;">Unstake</a>
-        </div>
-
-        <h2 class="unstakedHeader">UNSTAKED</h2>
-         
-        
-        <div class="col UnstakedOrcsMainSection" id="bigSection">
-          <a href="javascript:selectAllOrcsStake();" class="btn btn-full btn-minus" id="selectUnstakedOrcs">Select all</a>
-          <!-- <button class="bigSectionButtons buttonSelect">Select All</button> -->
-          <div class="col stakingcol d-grid flex-wrap justify-content-center UnstakedOrcsTemporary" id="UnstakedOrcs">
-              
-          </div>
-          
-          <a href="javascript:stakeOrcs();" class="btn btn-full btn-small ButtonStakeOrc">Stake Orc</a>
-        </div>
-
-        <div class="col UnstakedElfsMainSection" id="bigSection">
-          <a href="javascript:selectAllElfsStake();" class="btn btn-full btn-minus" id="selectUnstakedElfs">Select all</a>
-          <!-- <button class="bigSectionButtons buttonSelect">Select All</button> -->
-          <div class="col stakingcol d-grid flex-wrap justify-content-center UnstakedElfsTemporary" id="UnstakedElfs">
+           <!--unstaked elfs-->
+          <div class="col UnstakedElfsMainSection" id="bigSection">
+            <div class="row">
+              <div class="col sectionHeader">
+                <p>Unstaked Elfs</p>
+              </div>
+              <div class="col">
+                <img class="coinsButton selectButton" src="sources/Buttons/ButtonSelectAll.png" alt="" onclick="">
+              </div>
+            </div>
+            <div class="col stakingcol d-grid flex-wrap justify-content-center UnstakedElfsTemporary" id="UnstakedElfs">
                  
+            </div>
+            <img class="coinsButton" src="sources/Buttons/ButtonStake.png" alt="" onclick="">
           </div>
-
-          <a href="javascript:stakeElfs();" class="btn btn-full btn-small ButtonStakeElf">Stake Elf</a>
-        </div>      
-        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>   
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-    <script src="js/bootstrap.js"></script>
-    <script src="https://unpkg.com/moralis@1.5.9/dist/moralis.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="./functions.js"></script>
+        </div>
+      </div>
 </body>
 </html>
