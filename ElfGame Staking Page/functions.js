@@ -29,7 +29,6 @@ async function getImageNFT(){
 
   for (let i = 0; i < allIds.length; i++) {
     try{
-      console.log(idToURI.get(allIds[i]));
       response = await fetch(idToURI.get(allIds[i]));
       json = await response.json()
       idToImage.set(allIds[i],json.image);
@@ -474,7 +473,7 @@ async function load(){
   //updatePrice();
   await loadTokens();
   updateMana();
-  updateTotalStakedElfs();
+  //updateTotalStakedElfs();
 }
 
 // Onclick functions
@@ -591,14 +590,14 @@ async function stakeElfs(){
       await window.stakeContract.methods.batchStakeElf(arrayChecked).send({ from: accounts[0] });
 
       loadTokens();
-      updateTotalStakedElfs();
+      //updateTotalStakedElfs();
     }
     else{
       await window.mintContract.methods.setApprovalForAll(json.stakeContractAddress, true).send({ from: accounts[0] });
       await window.stakeContract.methods.batchStakeElf(arrayChecked).send({ from: accounts[0] });
 
       loadTokens();
-      updateTotalStakedElfs();
+      //updateTotalStakedElfs();
     }
   }
   else{
