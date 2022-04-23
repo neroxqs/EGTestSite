@@ -207,6 +207,7 @@ body{
     font-family: 'Bubblegum Sans', cursive;
     font-size: 13px;
     font-weight: bold;
+    margin: 0;
 }
 
 .nftStaked:hover{
