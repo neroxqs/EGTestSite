@@ -409,7 +409,7 @@ async function drawNFT(typeArray, section, staked){
     }
 
     var imageHTML = document.createElement('img');
-    imageHTML.src = "https://ipfs.io/ipfs/" + idToImage.get(id).substring(7);
+    //imageHTML.src = "https://ipfs.io/ipfs/" + idToImage.get(id).substring(7);
     imageHTML.id = 'NFTImage';
     
     var tokenIdParagraph = document.createElement('p');
@@ -447,7 +447,7 @@ async function loadTokens(){
   await loadStakedOrcs();
   await loadUnstakedElfsOrcs();
 
-  await getImageNFT();
+  //await getImageNFT();
 
   displayStakedNFTS("Elf");
   displayStakedNFTS("Orc");
