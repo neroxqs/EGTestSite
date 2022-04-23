@@ -447,7 +447,7 @@ async function loadTokens(){
   await loadStakedOrcs();
   await loadUnstakedElfsOrcs();
 
-  await getImageNFT();
+  //await getImageNFT();
 
   displayStakedNFTS("Elf");
   displayStakedNFTS("Orc");
