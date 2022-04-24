@@ -651,7 +651,7 @@ async function unstakeElfs(){
 
   if(arrayChecked.length>0){
     const accounts = await getAccounts();
-    await window.stakeContract.methods.claimManyRewards(arrayChecked).send({ from: accounts[0] });
+    await window.stakeContract.methods.claimManyRewards(arrayChecked,true).send({ from: accounts[0] });
 
     updateMana();
     loadTokens();
